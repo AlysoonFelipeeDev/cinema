@@ -162,11 +162,11 @@ const BuyerName = styled.form`
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    width: 310px;
+    width: 300px;
     input{
         border: 1px solid #D4D4D4;
         border-radius: 8px;
-        width: 100%;
+        width: 93%;
         padding: 10px;
     }
 `;
@@ -182,7 +182,7 @@ const Reserve = styled.button`
     justify-content: center;
     align-items: center;
     background-color: #EE897F;
-    width: 310px;
+    width: 280px;
     margin: 30px 0 ;
     padding: 10px;
     color: #2B2D36;
