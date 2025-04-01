@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export default function MovieSession (){
     const {idFilme} = useParams()
-    const [session, setSession] = useState([])
+    const [session, setSession] = useState(null)
 
     useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`)
@@ -14,7 +14,7 @@ export default function MovieSession (){
     }, [idFilme])
 
     if(session === null){
-        return <div>Carregando...</div>
+        return <Loading>Carregando...</Loading>
     }
     return (
         <Sessions>
@@ -84,4 +84,13 @@ const Time = styled(Link)`
     font-size: 16px;
     padding: 10px;
     text-decoration: none;
+`;
+
+const Loading = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 30px;
+color: #fff;
+margin-top: 50px;
 `;

@@ -61,7 +61,7 @@ export default function ChooseSeat(){
     }, [idSessao])
 
     if(chairs.seats.length === 0) {
-        return <div>Carregando...</div>
+        return <Loading>Carregando...</Loading>
     }
     return (
         <ChooseArmchairs>
@@ -191,4 +191,13 @@ const Reserve = styled.button`
     border-radius: 8px;
     border: none;
     cursor: pointer;
-`
+`;
+
+const Loading = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 30px;
+color: #fff;
+margin-top: 50px;
+`;

@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link} from "react-router-dom";
 
 export default function ListMovies(){
-    const [movie, setMovie] = useState([])
+    const [movie, setMovie] = useState(null)
 
     useEffect(() => {
         axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
@@ -12,6 +12,9 @@ export default function ListMovies(){
         .catch(err => console.log(err.response.data))
     }, [])
     
+    if(movie === null){
+        return <Loading>Carregando...</Loading>
+    }
     return (
         <ChooseMovies>
                 <h2>Em Cartaz</h2>
@@ -52,4 +55,13 @@ const Movie = styled(Link)`
     border-radius: 10px;
     cursor: pointer;
     }
+`;
+
+const Loading = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 30px;
+color: #fff;
+margin-top: 50px;
 `;
